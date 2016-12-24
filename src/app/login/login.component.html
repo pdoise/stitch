@@ -8,7 +8,7 @@
     autocomplete="off"
     id="login-form"
     name="loginForm"
-    class="col-md-3">
+    class="col-md-2">
 
     <!--Email-->
     <div class="form-group" ng-class="{'has-error':loginForm.email.$invalid && loginForm.email.$touched}">
@@ -54,11 +54,11 @@
       <p>
         <a href
           id="forgot-password-link"
-          ng-click="user.passwordReset(user)">Need Help?</a>
+          ng-click="user.passwordReset(user)">Need help?</a>
       </p>
     </div>
 
 
   </form>
 
-</div>
+</div><pre>{{user|json}}</pre>
