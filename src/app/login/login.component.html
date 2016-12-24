@@ -2,63 +2,44 @@
 <page-header title='Log In'></page-header>
 
 <div class="row">
-
-  <form novalidate
-    ng-submit="user.login(user.record)"
-    autocomplete="off"
-    id="login-form"
-    name="loginForm"
-    class="col-md-2">
-
-    <!--Email-->
-    <div class="form-group" ng-class="{'has-error':loginForm.email.$invalid && loginForm.email.$touched}">
-      <label translate
-        class="sr-only"
-        for="email-login">Email</label>
-      <input required autofocus
-        type="text"
-        id="email-field"
-        name="email"
-        ng-model="user.record.email"
-        class="form-control"
-        placeholder="Email">
-    </div>
-
-    <!--Password-->
-    <div class="form-group" ng-class="{'has-error':loginForm.password.$invalid && loginForm.password.$touched}">
-      <label translate
-        class="sr-only"
-        for="qa-login-password">Password</label>
-      <input required
-        type="password"
-        id="password-field"
-        name="password"
-        ng-model="user.record.password"
-        class="form-control"
-        placeholder="Password">
-    </div>
-
-    <!--Submit-->
+  <form class="col-md-2">
+    <!-- Email -->
     <div class="form-group">
-      <button
-        id="login-submit"
-        type="submit"
-        class="btn btn-primary">
-        Login
+      <label 
+        class="sr-only" 
+        for="email">Email
+      </label>
+      <input 
+        class="form-control"
+        placeholder="Email" 
+        type="text" 
+        id="email" 
+        required>
+    </div>
+    <!-- Password -->
+    <div class="form-group">
+      <label 
+        class="sr-only" 
+        for="password">Password
+      </label>
+      <input 
+        class="form-control"
+        placeholder="Password" 
+        type="text" 
+        id="password" 
+        required>
+    </div>
+    <!-- Submit -->
+    <div class="form-group">
+      <button 
+        type="submit" 
+        class="btn btn-primary">Log In
       </button>
     </div>
-
-    <!--Forgot password-->
-
+    <!-- Forgot Password-->
     <div class="form-group">
-      <p>
-        <a href
-          id="forgot-password-link"
-          ng-click="user.passwordReset(user)">Need help?</a>
-      </p>
+      <a>Need help?</a>
     </div>
-
-
   </form>
-
-</div><pre>{{user|json}}</pre>
+</div>
+<pre>{{model|json}}</pre>
