@@ -4,9 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { AuthGuard } from './_guards/auth.guard';
-import { AuthenticationService } from './_services/authentication.service';
-import { UserService } from './_services/user.service';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthenticationService } from './auth/authentication.service';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -29,8 +28,7 @@ import { PageHeaderComponent } from './common/components/page-header/page-header
   ],
   providers: [
     AuthGuard,
-    AuthenticationService,
-    UserService
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })
