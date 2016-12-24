@@ -2,7 +2,10 @@
 <page-header title='Log In'></page-header>
 
 <div class="row">
-  <form class="col-md-2">
+  <form novalidate
+    (ngSubmit)="onSubmit()" 
+    #loginForm="ngForm" 
+    class="col-md-2">
     <!-- Email -->
     <div class="form-group">
       <label 
@@ -13,8 +16,16 @@
         class="form-control"
         placeholder="Email" 
         type="text" 
-        id="email" 
+        id="email"
+        [(ngModel)]="model.email" 
+        name="email"
+        #email="ngModel"
         required>
+        <div 
+          [hidden]="email.valid || email.pristine"
+          class="alert alert-danger">
+          Email is required
+        </div>
     </div>
     <!-- Password -->
     <div class="form-group">
@@ -26,14 +37,24 @@
         class="form-control"
         placeholder="Password" 
         type="text" 
-        id="password" 
+        id="password"
+        [(ngModel)]="model.password" 
+        name="password"
+        #password="ngModel"
         required>
+        <div 
+          [hidden]="password.valid || password.pristine"
+          class="alert alert-danger">
+          Password is required
+        </div>
     </div>
     <!-- Submit -->
     <div class="form-group">
       <button 
         type="submit" 
-        class="btn btn-primary">Log In
+        class="btn btn-primary"
+        (click)="login(); loginForm.reset()"
+        [disabled]="!loginForm.form.valid">Log In
       </button>
     </div>
     <!-- Forgot Password-->
