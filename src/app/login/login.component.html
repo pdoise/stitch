@@ -54,7 +54,8 @@
         type="submit" 
         class="btn btn-primary"
         (click)="login(); loginForm.reset()"
-        [disabled]="!loginForm.form.valid">Log In
+        [disabled]="!loginForm.form.valid"
+        routerLink="/dashboard">Log In
       </button>
     </div>
     <!-- Forgot Password-->

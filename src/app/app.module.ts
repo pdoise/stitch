@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { routing } from './app.routing';
 import { PageHeaderComponent } from './common/components/page-header/page-header.component';
@@ -14,7 +15,8 @@ import { PageHeaderComponent } from './common/components/page-header/page-header
   declarations: [
     AppComponent,
     PageHeaderComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
