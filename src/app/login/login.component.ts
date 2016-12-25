@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
  
 import { AuthenticationService } from '../auth/authentication.service';
 
@@ -12,10 +13,18 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   error = '';
- 
+
+  loginForm : FormGroup;
+
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService) { }
+    private authenticationService: AuthenticationService,
+    private fb: FormBuilder) {
+      this.loginForm = fb.group({
+        'email' : [null, Validators.required],
+        'password': [null, Validators.required]
+      }) 
+  }
  
   ngOnInit() {
     // reset login status

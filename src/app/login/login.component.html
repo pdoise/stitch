@@ -3,11 +3,13 @@
 
 <div class="row">
   <form novalidate
-    (ngSubmit)="onSubmit()" 
-    #loginForm="ngForm" 
+    [formGroup]="loginForm" 
+    (ngSubmit)="login(loginForm.value)"
     class="col-md-2">
     <!-- Email -->
-    <div class="form-group">
+    <div 
+      class="form-group" 
+      [ngClass]="{'has-error':!loginForm.controls['email'].valid && loginForm.controls['email'].touched}">
       <label 
         class="sr-only" 
         for="email">Email
@@ -17,18 +19,17 @@
         placeholder="Email" 
         type="text" 
         id="email"
-        [(ngModel)]="model.email" 
-        name="email"
-        #email="ngModel"
+        [formControl]="loginForm.controls['email']"
         required>
         <div 
-          [hidden]="email.valid || email.pristine"
-          class="alert alert-danger">
-          Email is required
+          class="help-block"
+          *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">Email is required.
         </div>
     </div>
     <!-- Password -->
-    <div class="form-group">
+    <div 
+      class="form-group" 
+      [ngClass]="{'has-error':!loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
       <label 
         class="sr-only" 
         for="password">Password
@@ -38,14 +39,11 @@
         placeholder="Password" 
         type="text" 
         id="password"
-        [(ngModel)]="model.password" 
-        name="password"
-        #password="ngModel"
+        [formControl]="loginForm.controls['password']"
         required>
         <div 
-          [hidden]="password.valid || password.pristine"
-          class="alert alert-danger">
-          Password is required
+          class="help-block"
+          *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Email is required.
         </div>
     </div>
     <!-- Submit -->
@@ -53,8 +51,6 @@
       <button 
         type="submit" 
         class="btn btn-primary"
-        (click)="login(); loginForm.reset()"
-        [disabled]="!loginForm.form.valid"
         routerLink="/dashboard">Log In
       </button>
     </div>
@@ -64,4 +60,3 @@
     </div>
   </form>
 </div>
-<pre>{{model|json}}</pre>
