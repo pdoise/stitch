@@ -1,10 +1,11 @@
 <!--Header-->
 <page-header title='Log In'></page-header>
+<div>{{error}}</div>
 
 <div class="row">
   <form novalidate
     [formGroup]="loginForm" 
-    (ngSubmit)="login(loginForm.value)"
+    (ngSubmit)="login(user)"
     class="col-md-2">
     <!-- Email -->
     <div 
@@ -20,6 +21,8 @@
         type="text" 
         id="email"
         [formControl]="loginForm.controls['email']"
+        [(ngModel)]="user.email"
+        ngModel
         required>
         <div 
           class="help-block"
@@ -37,9 +40,10 @@
       <input 
         class="form-control"
         placeholder="Password" 
-        type="text" 
+        type="password" 
         id="password"
         [formControl]="loginForm.controls['password']"
+        [(ngModel)]="user.password"
         required>
         <div 
           class="help-block"
@@ -51,7 +55,8 @@
       <button 
         type="submit" 
         class="btn btn-primary"
-        routerLink="/dashboard">Log In
+        routerLink="/dashboard"
+        [disabled]="loading">Log In
       </button>
     </div>
     <!-- Forgot Password-->

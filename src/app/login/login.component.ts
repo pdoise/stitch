@@ -10,7 +10,7 @@ import { AuthenticationService } from '../auth/authentication.service';
 })
 
 export class LoginComponent implements OnInit {
-  model: any = {};
+  user: any = {};
   loading = false;
   error = '';
 
@@ -33,16 +33,16 @@ export class LoginComponent implements OnInit {
  
   login() {
     this.loading = true;
-    this.authenticationService.login(this.model)
-        .subscribe(result => {
-          if (result === true) {
-            // login successful
-            this.router.navigate(['/']);
-          } else {
-            // login failed
-            this.error = 'Username or password is incorrect';
-            this.loading = false;
-          }
-        });
+    this.authenticationService
+      .login(this.user)
+      .subscribe(
+        result => {
+          this.router.navigate(['/']);
+        },
+        error => {
+          this.error = 'Username or password is incorrect';
+          this.loading = false;
+        }
+      );
   }
 }
