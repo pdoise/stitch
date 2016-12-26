@@ -6,7 +6,8 @@ import { AuthenticationService } from '../auth/authentication.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.scss']
 })
 
 export class LoginComponent implements OnInit {
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error => {
-          this.error = 'Username or password is incorrect';
+          this.error = "We're sorry, your Email or Password was incorrect.";
           this.loading = false;
         }
       );

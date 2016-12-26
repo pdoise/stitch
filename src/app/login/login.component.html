@@ -1,6 +1,14 @@
 <!--Header-->
 <page-header title='Log In'></page-header>
-<div>{{error}}</div>
+<div
+  *ngIf="error"
+  class="page-level-messages">
+  <div
+    class="alert alert-danger" 
+    role="alert"><span class="glyphicon glyphicon-trash glyph"></span>
+      {{error}}
+  </div>
+</div>
 
 <div class="row">
   <form novalidate
