@@ -13,7 +13,7 @@ import { PageLevelMessagesComponent } from '../common/components/page-level-mess
 export class LoginComponent implements OnInit {
   user: any = {};
   loading = false;
-  error = '';
+  msg: any;
 
   loginForm : FormGroup;
 
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error => {
-          this.messages.forCurrentRoute("We're sorry, your Email or Password was incorrect.", "danger")
+          this.msg = "We're sorry, your Email or Password was incorrect."
           this.loading = false;
         }
       );

@@ -7,11 +7,6 @@ import { Component, Input} from '@angular/core';
 })
 export class PageLevelMessagesComponent {
 
-  @Input() msg = 'hi';
-  @Input() type = 'danger';
-
-  forCurrentRoute(messages, type) {
-    this.msg = messages;
-    this.type = type;
-  }
+  @Input() msg: string;
+  
 }
