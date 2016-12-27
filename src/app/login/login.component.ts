@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
  
 import { AuthenticationService } from '../auth/authentication.service';
+import { PageLevelMessagesComponent } from '../common/components/page-level-messages/page-level-messages.component';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.scss']
+  templateUrl: './login.component.html'
 })
 
 export class LoginComponent implements OnInit {
@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
+    private messages: PageLevelMessagesComponent,
     private fb: FormBuilder) {
       this.loginForm = fb.group({
         'email' : [null, Validators.required],
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error => {
-          this.error = "We're sorry, your Email or Password was incorrect.";
+          this.messages.forCurrentRoute("We're sorry, your Email or Password was incorrect.", "danger")
           this.loading = false;
         }
       );

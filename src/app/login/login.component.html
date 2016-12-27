@@ -1,14 +1,6 @@
 <!--Header-->
 <page-header title='Log In'></page-header>
-<div
-  *ngIf="error"
-  class="page-level-messages">
-  <div
-    class="alert alert-danger" 
-    role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span>
-      {{error}}
-  </div>
-</div>
+<page-level-messages></page-level-messages>
 
 <div class="row">
   <form novalidate

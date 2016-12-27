@@ -1,0 +1,9 @@
+<div
+  *ngIf="msg"
+  class="page-level-messages">
+  <div
+    class="alert alert-{{type}}" 
+    role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span>
+      {{msg}}
+  </div><pre>{{msg}}</pre>
+</div>

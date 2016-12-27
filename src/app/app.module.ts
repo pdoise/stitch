@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { PageHeaderComponent } from './common/components/page-header/page-header.component';
+import { PageLevelMessagesComponent } from './common/components/page-level-messages/page-level-messages.component';
 
 import { routing } from './app.routing';
 
@@ -18,7 +19,8 @@ import { routing } from './app.routing';
     AppComponent,
     PageHeaderComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    PageLevelMessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { routing } from './app.routing';
   ],
   providers: [
     AuthGuard,
-    AuthenticationService
+    AuthenticationService,
+    PageLevelMessagesComponent
   ],
   bootstrap: [AppComponent]
 })
