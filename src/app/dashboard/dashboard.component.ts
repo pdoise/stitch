@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-dashboard',
-  template: `<h3>Logged in!!!</h3><p><a [routerLink]="['/login']">Logout</a></p>`
+  selector: 'dashboard',
+  templateUrl: './dashboard.component.html'
 })
+
 export class DashboardComponent { }

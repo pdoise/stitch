@@ -10,23 +10,21 @@ import { PvdmMessage } from './pvdm-messages.model';
 })
 
 export class PvdmMessages {
-  private _notes: PvdmMessage[];
+  private __messages: PvdmMessage[];
 
-  constructor(private _messages: PvdmMessagesService) {
-    this._notes = new Array<PvdmMessage>();
+  constructor(private __messageService: PvdmMessagesService) {
+    this.__messages = new Array<PvdmMessage>();
 
-    _messages.noteAdded.subscribe(note => {
-      this._notes.push(note);
-
-      setTimeout(() => { this.hide.bind(this)(note) }, 3000);
+    __messageService.messageAdded.subscribe(message => {
+      this.__messages.push(message);
     });
   }
 
-  private hide(note) {
-    let index = this._notes.indexOf(note);
+  private hide(message) {
+    let index = this.__messages.indexOf(message);
 
     if (index >= 0) {
-        this._notes.splice(index, 1);
+        this.__messages.splice(index, 1);
     }
   }
 }

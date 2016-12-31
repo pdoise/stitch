@@ -7,7 +7,7 @@ import { PvdmMessage } from './pvdm-messages.model';
 export class PvdmMessagesService {
   private _messages = new Subject<PvdmMessage>();
 
-  public noteAdded = this._messages.asObservable();
+  public messageAdded = this._messages.asObservable();
 
   public add(message: PvdmMessage) {
     this._messages.next(message);

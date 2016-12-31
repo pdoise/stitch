@@ -7,14 +7,14 @@ import 'rxjs/add/operator/map'
 export class AuthenticationService {
   public token: string;
  
-  constructor(private http: Http) {
+  constructor(private __http: Http) {
     // set token if saved in local storage
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
   }
  
   login(credentials): Observable<boolean> {
-    return this.http.post('http://localhost:4001/login', credentials )
+    return this.__http.post('http://localhost:4001/login', credentials )
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
         let token = response.json() && response.json().jwt;

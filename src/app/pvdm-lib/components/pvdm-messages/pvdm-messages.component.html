@@ -1,6 +1,10 @@
-<div class="pvdm-messages">
-  <div (click)="hide(note)" class="alert alert-{{ note.type }}" *ngFor="let note of _notes">
-  <span class="glyphicon glyphicon-exclamation-sign"></span>
-    {{ note.message }}
+<div
+  *ngIf="__messages.length > 0"
+  class="pvdm-messages">
+  <div 
+    class="alert alert-{{ message.type }}" 
+    *ngFor="let message of __messages">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
+    {{ message.messageText }}
   </div>
-</div>
+</div><pre>{{__messages|json}}</pre>

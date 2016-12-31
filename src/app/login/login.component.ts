@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup;
 
   constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService,
-    private _notes: PvdmMessagesService,
-    private fb: FormBuilder) {
-      this.loginForm = fb.group({
+    private __router: Router,
+    private __authenticationService: AuthenticationService,
+    private __messages: PvdmMessagesService,
+    private __fb: FormBuilder) {
+      this.loginForm = __fb.group({
         'email' : [null, Validators.required],
         'password': [null, Validators.required]
       }) 
@@ -31,19 +31,19 @@ export class LoginComponent implements OnInit {
  
   ngOnInit() {
     // reset login status
-    this.authenticationService.logout();
+    this.__authenticationService.logout();
   }
  
   login() {
     this.loading = true;
-    this.authenticationService
+    this.__authenticationService
       .login(this.user)
       .subscribe(
         result => {
-          this.router.navigate(['/']);
+          this.__router.navigate(['/']);
         },
         error => {
-          this._notes.add(new PvdmMessage("danger", "We're sorry, your User ID or Password was incorrect."));
+          this.__messages.add(new PvdmMessage("danger", "We're sorry, your User ID or Password was incorrect."));
           this.loading = false;
         }
       );
