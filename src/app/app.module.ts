@@ -11,6 +11,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { PageHeaderComponent } from './common/components/page-header/page-header.component';
 import { PageLevelMessagesComponent } from './common/components/page-level-messages/page-level-messages.component';
+import { NotificationsService } from './common/components/notifications/notifications.service';
+import { Notifications } from './common/components/notifications/notifications.component';
 
 import { routing } from './app.routing';
 
@@ -20,7 +22,8 @@ import { routing } from './app.routing';
     PageHeaderComponent,
     LoginComponent,
     DashboardComponent,
-    PageLevelMessagesComponent
+    PageLevelMessagesComponent,
+    Notifications
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { routing } from './app.routing';
   providers: [
     AuthGuard,
     AuthenticationService,
-    PageLevelMessagesComponent
+    PageLevelMessagesComponent,
+    NotificationsService
   ],
   bootstrap: [AppComponent]
 })
