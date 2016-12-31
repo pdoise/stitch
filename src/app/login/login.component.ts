@@ -3,9 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
  
 import { AuthenticationService } from '../auth/authentication.service';
-import { PageLevelMessagesComponent } from '../common/components/page-level-messages/page-level-messages.component';
-import { NotificationsService } from '../common/components/notifications/notifications.service';
-import { Notification } from '../common/components/notifications/notifications.model';
+import { PvdmMessagesService } from '../pvdm-lib/components/pvdm-messages/pvdm-messages.service';
+import { PvdmMessage } from '../pvdm-lib/components/pvdm-messages/pvdm-messages.model';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
-    private _notes: NotificationsService,
-    private messages: PageLevelMessagesComponent,
+    private _notes: PvdmMessagesService,
     private fb: FormBuilder) {
       this.loginForm = fb.group({
         'email' : [null, Validators.required],
@@ -45,7 +43,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error => {
-          this._notes.add(new Notification("danger", "We're sorry, your User ID or Password was incorrect."));
+          this._notes.add(new PvdmMessage("danger", "We're sorry, your User ID or Password was incorrect."));
           this.loading = false;
         }
       );

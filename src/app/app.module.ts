@@ -9,21 +9,19 @@ import { AuthenticationService } from './auth/authentication.service';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { PageHeaderComponent } from './common/components/page-header/page-header.component';
-import { PageLevelMessagesComponent } from './common/components/page-level-messages/page-level-messages.component';
-import { NotificationsService } from './common/components/notifications/notifications.service';
-import { Notifications } from './common/components/notifications/notifications.component';
+import { PvdmPageHeaderComponent } from './pvdm-lib/components/pvdm-page-header/pvdm-page-header.component';
+import { PvdmMessagesService } from './pvdm-lib/components/pvdm-messages/pvdm-messages.service';
+import { PvdmMessages } from './pvdm-lib/components/pvdm-messages/pvdm-messages.component';
 
 import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageHeaderComponent,
+    PvdmPageHeaderComponent,
     LoginComponent,
     DashboardComponent,
-    PageLevelMessagesComponent,
-    Notifications
+    PvdmMessages
   ],
   imports: [
     BrowserModule,
@@ -35,8 +33,7 @@ import { routing } from './app.routing';
   providers: [
     AuthGuard,
     AuthenticationService,
-    PageLevelMessagesComponent,
-    NotificationsService
+    PvdmMessagesService
   ],
   bootstrap: [AppComponent]
 })
