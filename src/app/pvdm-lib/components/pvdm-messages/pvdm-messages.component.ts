@@ -9,7 +9,7 @@ import { PvdmMessage } from './pvdm-messages.model';
   styleUrls: ['./pvdm-messages.component.scss']
 })
 
-export class PvdmMessages {
+export class PvdmMessagesComponent {
   private __messages: PvdmMessage[];
 
   constructor(private __messageService: PvdmMessagesService) {

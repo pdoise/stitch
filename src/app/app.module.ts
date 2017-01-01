@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { PvdmPageHeaderComponent } from './pvdm-lib/components/pvdm-page-header/pvdm-page-header.component';
 import { PvdmMessagesService } from './pvdm-lib/components/pvdm-messages/pvdm-messages.service';
-import { PvdmMessages } from './pvdm-lib/components/pvdm-messages/pvdm-messages.component';
+import { PvdmMessagesComponent } from './pvdm-lib/components/pvdm-messages/pvdm-messages.component';
 
 import { routing } from './app.routing';
 
@@ -21,7 +21,7 @@ import { routing } from './app.routing';
     PvdmPageHeaderComponent,
     LoginComponent,
     DashboardComponent,
-    PvdmMessages
+    PvdmMessagesComponent
   ],
   imports: [
     BrowserModule,
