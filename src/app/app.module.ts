@@ -1,35 +1,31 @@
+// Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, XHRBackend } from '@angular/http';
-
+// Modules
+import { PvdmModule } from './pvdm/pvdm.module';
+// Components
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+// Services
 import { AuthGuard } from './auth/auth.guard';
 import { AuthenticationService } from './auth/authentication.service';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { PvdmPageHeaderComponent } from './pvdm-lib/components/pvdm-page-header/pvdm-page-header.component';
 import { PvdmMessagesService } from './pvdm-lib/components/pvdm-messages/pvdm-messages.service';
-import { PvdmMessagesComponent } from './pvdm-lib/components/pvdm-messages/pvdm-messages.component';
-
 import { HttpErrors } from './http-errors/http-errors';
-
 import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PvdmPageHeaderComponent,
-    LoginComponent,
-    DashboardComponent,
-    PvdmMessagesComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    PvdmModule,
     routing
   ],
   providers: [
