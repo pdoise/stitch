@@ -8,28 +8,6 @@ body {
   padding-top: 50px;
   }
 
-@font-face {
-  font-family: "Glyphicons";
-  src:
-    url("./assets/fonts/glyphicons-regular.woff2") format("woff2"),
-    url("./assets/fonts/glyphicons-regular.woff") format("woff");
-  }
-
-[class*="glyphicon-"] {
-  display: inline-block;
-  font-family: "Glyphicons";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1em;
-  }
-
-a[class*="glyphicon-"] {
-  text-decoration: none;
-  }
-
-.glyphicon-pvdm-hub:before { content: "\F051"}
-.glyphicon-circle-exclamation-mark:before { content: "\E197"}
-
 /**
  * Future-proof disabling of clicks
  */

@@ -4,10 +4,10 @@
     <h1
       *ngIf="header"
       class="page-header-title">
-        <i 
-          *ngIf="icon"
-          class="glyphicon glyphicon-pvdm-{{ icon }} text-muted"></i>
-        <span>{{header}}</span>
+      <span class="text-muted">
+        <pvdm-icon name="{{ icon }}"></pvdm-icon>
+      </span>
+      <span>{{header}}</span>
     </h1>
 
     <ng-content></ng-content>
