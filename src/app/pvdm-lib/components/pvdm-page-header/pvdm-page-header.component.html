@@ -1,9 +1,13 @@
 <div>
 
   <div class="pvdm-page-header">
-
-    <h1 class="page-header-title">
-      <span>{{title}}</span>
+    <h1
+      *ngIf="header"
+      class="page-header-title">
+        <i 
+          *ngIf="icon"
+          class="glyphicon glyphicon-{{ icon }} text-muted"></i>
+        <span>{{header}}</span>
     </h1>
 
     <ng-content></ng-content>

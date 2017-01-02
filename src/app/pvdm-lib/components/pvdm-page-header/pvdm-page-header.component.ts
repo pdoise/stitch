@@ -7,6 +7,7 @@ import { Component, Input} from '@angular/core';
 })
 export class PvdmPageHeaderComponent {
 
-  @Input() title: string;
+  @Input() header: string;
+  @Input() icon: string;
 
 }

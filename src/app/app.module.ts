@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, XHRBackend } from '@angular/http';
 // Modules
 import { PvdmModule } from './pvdm/pvdm.module';
+import { PvdmComponentsModule } from './pvdm-lib/components/pvdm-components.module';
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -25,6 +26,7 @@ import { routing } from './app.routing';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    PvdmComponentsModule,
     PvdmModule,
     routing
   ],

@@ -2,9 +2,8 @@
 import { NgModule }           from '@angular/core';
 import { CommonModule }       from '@angular/common';
 import { FormsModule }        from '@angular/forms';
-// Pvdm Lib
-import { PvdmPageHeaderComponent } from '../pvdm-lib/components/pvdm-page-header/pvdm-page-header.component';
-import { PvdmMessagesComponent } from '../pvdm-lib/components/pvdm-messages/pvdm-messages.component';
+// Modules
+import { PvdmComponentsModule } from '../pvdm-lib/components/pvdm-components.module';
 // Components
 import { HubAccountsComponent } from './hub-accounts/hub-accounts.component';
 // Services
@@ -15,17 +14,14 @@ import { routing } from '../app.routing';
   imports: [ 
     CommonModule, 
     FormsModule,
+    PvdmComponentsModule,
     routing 
   ],
   declarations: [ 
-    PvdmPageHeaderComponent,
-    PvdmMessagesComponent,
     HubAccountsComponent
   ],
   exports: [ 
-     PvdmPageHeaderComponent,
-     PvdmMessagesComponent,
-     HubAccountsComponent 
+    HubAccountsComponent 
   ],
   providers: [ 
     PvdmMessagesService 
