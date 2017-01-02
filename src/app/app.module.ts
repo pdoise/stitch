@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, XHRBackend } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -12,6 +12,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PvdmPageHeaderComponent } from './pvdm-lib/components/pvdm-page-header/pvdm-page-header.component';
 import { PvdmMessagesService } from './pvdm-lib/components/pvdm-messages/pvdm-messages.service';
 import { PvdmMessagesComponent } from './pvdm-lib/components/pvdm-messages/pvdm-messages.component';
+
+import { HttpErrors } from './http-errors/http-errors';
 
 import { routing } from './app.routing';
 
@@ -33,7 +35,8 @@ import { routing } from './app.routing';
   providers: [
     AuthGuard,
     AuthenticationService,
-    PvdmMessagesService
+    PvdmMessagesService,
+    {provide: XHRBackend, useClass: HttpErrors}
   ],
   bootstrap: [AppComponent]
 })
