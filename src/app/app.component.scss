@@ -5,7 +5,6 @@
   background-image: url("../assets/img/pacsight-wordmark.png");
   background-size: 125px 30px;
   background-repeat: no-repeat;
-  background-position: 15px 10px;
   &.pvdm-user {
     background-image: url("../assets/img/pvdm-pacsight-wordmark.png");
     background-color: #FAFAFA;
@@ -14,7 +13,7 @@
 
 .navbar-brand {
   cursor: pointer;
-  padding: 0;
+  padding: 0px;
   }
 
 .navbar-brand-logo {
@@ -24,6 +23,7 @@
   }
 
 .navbar-inverse {
+  max-height: 50px;
   background-color: #464646 !important;
   }
 
