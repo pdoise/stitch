@@ -1,15 +1,28 @@
 import { Injectable} from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { PvdmMessage } from './pvdm-messages.model';
 
 @Injectable()
 export class PvdmMessagesService {
-  private _messages = new Subject<PvdmMessage>();
 
-  public messageAdded = this._messages.asObservable();
+  constructor(private router: Router) {
+  }
 
-  public add(message: PvdmMessage) {
-    this._messages.next(message);
+  private __messages = new Subject<PvdmMessage>();
+
+  public messageAdded = this.__messages.asObservable();
+
+  public currentRoute(message: PvdmMessage) {
+    this.__messages.next(message);
+  }
+
+  public nextRoute(message: PvdmMessage) {
+  this.router.events
+    .map( event => event instanceof NavigationEnd )
+    .subscribe( () => {
+      this.__messages.next(message);
+    });	
   }
 }

@@ -9,7 +9,7 @@
     <!-- Email -->
     <div 
       class="form-group" 
-      [ngClass]="{'has-error':!loginForm.controls['email'].valid && loginForm.controls['email'].touched}">
+      [ngClass]="{'has-danger':!loginForm.controls['email'].valid && loginForm.controls['email'].touched}">
       <label 
         class="sr-only" 
         for="email">Email
@@ -24,14 +24,14 @@
         ngModel
         required>
         <div 
-          class="help-block"
+          class="form-control-feedback"
           *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">Email is required.
         </div>
     </div>
     <!-- Password -->
     <div 
       class="form-group" 
-      [ngClass]="{'has-error':!loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
+      [ngClass]="{'has-danger':!loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
       <label 
         class="sr-only" 
         for="password">Password
@@ -45,8 +45,8 @@
         [(ngModel)]="user.password"
         required>
         <div 
-          class="help-block"
-          *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Email is required.
+          class="form-control-feedback"
+          *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password is required.
         </div>
     </div>
     <!-- Submit -->

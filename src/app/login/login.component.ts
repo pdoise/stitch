@@ -11,7 +11,7 @@ import { PvdmMessage } from '../pvdm-lib/components/pvdm-messages/pvdm-messages.
   templateUrl: './login.component.html'
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit{
   user: any = {};
   loading = false;
   msg: any;
@@ -28,10 +28,9 @@ export class LoginComponent implements OnInit {
         'password': [null, Validators.required]
       }) 
   }
- 
+
   ngOnInit() {
-    // reset login status
-    this.__authenticationService.logout();
+    this.__authenticationService.logout()
   }
  
   login() {
@@ -43,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.__router.navigate(['/']);
         },
         error => {
-          this.__messages.add(new PvdmMessage("danger", "We're sorry, your User ID or Password was incorrect."));
+          this.__messages.currentRoute(new PvdmMessage("danger", "We're sorry, your User ID or Password was incorrect."));
           this.loading = false;
         }
       );

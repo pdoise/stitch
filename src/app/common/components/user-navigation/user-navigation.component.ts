@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from '../../../auth/authentication.service';
 
 @Component({
   selector: 'user-navigation',
@@ -6,4 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-navigation.component.scss']
 })
 
-export class UserNavigationComponent {}
+export class UserNavigationComponent {
+
+  constructor(private __authenticationService: AuthenticationService) {}
+
+  logout() {
+    this.__authenticationService.logout()
+  }
+}

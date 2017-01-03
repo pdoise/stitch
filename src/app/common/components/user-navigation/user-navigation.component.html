@@ -10,7 +10,10 @@
     
     <div class="dropdown-menu dropdown-menu-right">
       <button class="dropdown-item">Change Password</button>
-      <button class="dropdown-item">Logout</button>
+      <button 
+        class="dropdown-item"
+        (click)="logout()"
+        [routerLink]="['/login']">Logout</button>
     </div>
   </div>
 </div>

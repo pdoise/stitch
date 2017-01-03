@@ -4,7 +4,9 @@
     <div class="pvdm-logo"></div>
   </div>
   
-  <div class="site-header-right">
+  <div
+    *ngIf="__authenticationService.authenticated"
+    class="site-header-right">
     <user-navigation></user-navigation>
   </div>
 

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component }     from '@angular/core';
+import { AuthenticationService } from '../../../auth/authentication.service';
 
 @Component({
   selector: 'site-header',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./site-header.component.scss']
 })
 
-export class SiteHeaderComponent {}
+export class SiteHeaderComponent {
+
+  constructor(private __authenticationService: AuthenticationService) {}
+
+}
