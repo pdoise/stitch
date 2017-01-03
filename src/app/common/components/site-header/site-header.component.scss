@@ -1,0 +1,114 @@
+.pvdm-site-header {
+  .site-header-left {
+    float:left;
+    height: 50px;
+    }
+  .site-header-right {
+    float: right;
+    height: 50px;
+    margin-top: -7px;
+    margin-right: -15px;
+    }
+    a {
+    line-height: 51px;
+    color: #AEAEAE;
+    &:hover,
+    &:focus,
+    &:active {
+      color: darken(#AEAEAE, 15%);
+      outline: 0;
+      }
+    }
+  &.active {
+    a {
+      color: #E71D32;
+      &:hover,
+      &:focus,
+      &:active {
+        color: darken(#E71D32, 15%);
+        }
+      }
+    }
+  }
+
+.site-title {
+  color: #E0E0E0;
+  border-left: 1px solid #777677;
+  display: inline-block;
+  float:left;
+  font-size: 1.2em;
+  height: 51px;
+  line-height: 51px;
+  white-space: nowrap;
+  padding-left: 15px;
+  @media (max-width: 600px) {
+    display:none;
+    }
+  @media (min-width: 600px) {
+    width: 150px
+    }
+  @media (min-width: 768px) {
+    width: 200px
+    }
+  @media (min-width: 992px) {
+    width: 400px;
+    }
+  @media (min-width: 1200px) {
+    width: 600px;
+    }
+  }
+
+.profile-site-title {
+  color: #E0E0E0;
+  border-right: 1px solid #777677;
+  font-size: 1.2em;
+  height: 51px;
+  line-height: 51px;
+  white-space: nowrap;
+  padding-right: 15px;
+  @media (max-width: 600px) {
+    display:none;
+    }
+  @media (min-width: 600px) {
+    width: 150px
+    }
+  @media (min-width: 768px) {
+    width: 200px
+    }
+  @media (min-width: 992px) {
+    width: 400px;
+    }
+  @media (min-width: 1200px) {
+    width: 600px;
+    }
+  }
+
+.pvdm-logo {
+  width: 155px;
+  height: 51px;
+  float: left;
+  background-image: url("../assets/img/pacsight-wordmark.png");
+  background-size: 125px 30px;
+  background-repeat: no-repeat;
+  background-position: 3px 3px;
+  &.pvdm-user {
+    background-image: url("../assets/img/pvdm-pacsight-wordmark.png");
+    background-color: #FAFAFA;
+    }
+  }
+
+.navbar-brand {
+  cursor: pointer;
+  padding: 0px;
+  }
+
+.navbar-brand-logo {
+  border-left: 1px solid gray;
+  display: inline-block;
+  text-indent: -9999px;
+  }
+
+.navbar-inverse {
+  max-height: 50px;
+  background-color: #464646 !important;
+  }

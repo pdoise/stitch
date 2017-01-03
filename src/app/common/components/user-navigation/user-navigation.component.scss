@@ -1,0 +1,36 @@
+.user-nav-dropdown {
+  height: 50px;
+  color: darken(#ffffff, 15%);
+  background-color: #464646;
+  border: 1px solid #464646;
+  .pvdm-icon {
+    vertical-align: top;
+    }
+  .large-screen {
+    @media (max-width: 650px) {
+      display: none; 
+      }
+    }
+  .small-screen {
+    @media (min-width: 651px) {
+      display: none; 
+      }
+    }
+  &:hover,
+  &:focus,
+  &.active {
+    color: #ffffff;
+    background-color: #323232;
+    }
+  &:after {
+    border-color: darken(#ffffff, 15%) transparent transparent transparent;
+    }
+  &:hover:after,
+  &:focus:after {
+    border-color: #ffffff transparent transparent transparent;
+    background-color: #323232;
+    }
+  }
+
+.dropdown-menu-right{
+}
