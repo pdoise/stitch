@@ -2,7 +2,7 @@ import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'pvdm-icon',
-  templateUrl: './pvdm-icon.component.html',
+  template: `<span class="glyphicon-{{ name }} pvdm-icon"></span>`,
   styleUrls: ['./pvdm-icon.component.scss']
 })
 
