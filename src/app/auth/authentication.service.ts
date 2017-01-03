@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 
@@ -13,7 +14,8 @@ export class AuthenticationService {
  
   constructor(
     private __http: Http,
-    private __messages: PvdmMessagesService) {
+    private __messages: PvdmMessagesService,
+    private __router: Router) {
     // set token if saved in local storage
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
@@ -46,6 +48,7 @@ export class AuthenticationService {
     this.token = null;
     this.authenticated = false;
     localStorage.removeItem('currentUser');
-    this.__messages.nextRoute(new PvdmMessage("success", "You have logged out successfully."));
+    if (this.__router.url != '/login')
+      this.__messages.nextRoute(new PvdmMessage("success", "You have logged out successfully."));
   }
 }

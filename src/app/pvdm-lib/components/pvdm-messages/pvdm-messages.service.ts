@@ -7,7 +7,7 @@ import { PvdmMessage } from './pvdm-messages.model';
 @Injectable()
 export class PvdmMessagesService {
 
-  constructor(private router: Router) {
+  constructor(private __router: Router) {
   }
 
   private __messages = new Subject<PvdmMessage>();
@@ -19,10 +19,9 @@ export class PvdmMessagesService {
   }
 
   public nextRoute(message: PvdmMessage) {
-  this.router.events
-    .map( event => event instanceof NavigationEnd )
-    .subscribe( () => {
-      this.__messages.next(message);
-    });	
+    this.__router.events.subscribe(path => {
+    	if (path instanceof NavigationEnd)
+        this.__messages.next(message);
+    });
   }
 }
