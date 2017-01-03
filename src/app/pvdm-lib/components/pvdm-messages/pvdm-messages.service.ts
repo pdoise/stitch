@@ -1,11 +1,14 @@
 import { Injectable} from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import { PvdmMessage } from './pvdm-messages.model';
 
 @Injectable()
 export class PvdmMessagesService {
+
+  subscription: Subscription;
 
   constructor(private __router: Router) {
   }
@@ -19,8 +22,9 @@ export class PvdmMessagesService {
   }
 
   public nextRoute(message: PvdmMessage) {
-    this.__router.events.subscribe(path => {
+    this.subscription = this.__router.events.subscribe(path => {
     	if (path instanceof NavigationEnd)
+    		this.subscription.unsubscribe();
         this.__messages.next(message);
     });
   }
